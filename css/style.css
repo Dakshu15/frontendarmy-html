@@ -77,9 +77,26 @@ header {
     font-weight: 500;
     margin: 0 20px;
     transition: all ease 0.3s 0s;
+    position: relative;
+    padding-bottom: 4px;
+}
+.header_menu ul li a:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    height: 0;
+    left: 0;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-color: #5FE0C6;
+    transition: all ease 0.3s 0s;
+    width: 0;
+}
+.header_menu ul li a:hover:after{
+    width: 100%;
 }
 .header_menu ul li a:hover {
-    color: #4bb2b0;
+    color: #5FE0C6;
 }
 .contact_btn a {
     display: inline-block;
@@ -90,6 +107,24 @@ header {
     border: 1px solid #fff;
     margin-left: 5px;
     transition: all ease 0.3s 0s;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact_btn a:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    background: #FFFFFF;
+    height: 100%;
+    left: 0;
+    transform: scale3d(2,2,1) rotateZ(15deg) translate3d(0,100%,0);
+    transition: transform .3s ease-in-out;
+    z-index: -1;
+}
+.contact_btn a:hover:after{     
+    transform: scale3d(2,2,1) rotateZ(15deg) translate3d(0,0,0); 
 }
 .contact_btn a svg {
     margin-left: 10px;
@@ -97,13 +132,12 @@ header {
 .contact_btn a svg path, .contact_btn a svg rect, .lets_start_btn a:hover svg path, .lets_start_btn a:hover svg circle {
     transition: all ease 0.3s 0s;
 }
-.contact_btn a:hover {
-    border: 1px solid #00D4D4;
-    color: #00D4D4;
+ .contact_btn a:hover {
+    color: #0C171D;
 }
 .contact_btn a:hover svg path, .contact_btn a:hover svg rect {
-    fill: #00D4D4;
-}
+    fill: #0C171D;
+} 
 
 /******************* header end ********************/
 
@@ -111,7 +145,8 @@ header {
 
 .hero_banner {
     background: #0C171E;
-    padding: 110px 0 60px;
+    padding: 0;
+    height: 100vh;
     box-shadow: 0px 4px 12px -6px rgb(176 176 176 / 25%);
 }
 .banner_title h1 {
@@ -151,7 +186,7 @@ header {
     border-radius: 40px;
     width: 50px;
     height: 50px;
-    border: 1px solid rgba(255,255,255,0.5);
+    border: 2px solid rgba(255,255,255,0.5);
     transition: border .2s ease-in-out;
 }
 .lets_start_btn a span:before {
@@ -183,7 +218,7 @@ header {
     color: #00D4D4;
  }
 .lets_start_btn a:hover span {
-    border: 1px solid #00D4D4;
+    border: 2px solid #00D4D4;
 }
 .lets_start_btn a:hover span:before {
     width: 25px;
@@ -226,9 +261,9 @@ header {
     width: 332px;
     height: 606px;
 }
-.banner_img_part{
+.banner_img_part {
     position: relative;
-    left: -14.5%;
+    left: -19%;
 }
 .banner_circle_box {
     border-radius: 50%;
@@ -248,6 +283,9 @@ header {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
 }
 .lets_start_btn {
     padding-top: 30px;
@@ -297,6 +335,11 @@ header {
     right: 39px;
     transition: all 0.3s linear 0s;
 }
+.services_item_box:nth-child(1) .services_item_box_color{ background-color: #5FE0C6; }
+.services_item_box:nth-child(2) .services_item_box_color{ background-color: #F16A54; }
+.services_item_box:nth-child(3) .services_item_box_color{ background-color: #7252CF; }
+.services_item_box:nth-child(4) .services_item_box_color{ background-color: #FDD95D; }
+
 .services_item_box_img:hover .services_item_box_color {
     top: 29px;
     right: 29px;
@@ -355,9 +398,11 @@ ul.service_points {
     color: #0C171D;
     text-transform: uppercase;
     transition: all ease 0.3s 0s;
+    letter-spacing: 0;
 }
 .view_all_work_btn a:hover {
     color: #ee5321;
+    letter-spacing: 1px;
 }
 .view_all_work_btn a:hover svg path{
     fill: #ee5321;
@@ -439,19 +484,19 @@ button.slick-arrow {
     height: 14px;
 }
 button.slick-prev{
-    background: url(../images/previous_arrow.png) no-repeat;
+    background: url(http://localhost/git-wordpress-project/frontendarmy-wordpress/wp-content/uploads/2022/01/previous_arrow.png) no-repeat;
     right: 8%;
 }
 button.slick-next {
-    background: url(../images/next_arrow.png) no-repeat;
+    background: url(http://localhost/git-wordpress-project/frontendarmy-wordpress/wp-content/uploads/2022/01/next_arrow.png) no-repeat;
     right: 4%;
 }
 
 button.slick-prev:hover{
-    background: url(../images/previous_hover_arrow.png) no-repeat;
+    background: url(http://localhost/git-wordpress-project/frontendarmy-wordpress/wp-content/uploads/2022/01/previous_hover_arrow.png) no-repeat;
 }
 button.slick-next:hover{
-    background: url(../images/next_hover_arrow.png) no-repeat;
+    background: url(http://localhost/git-wordpress-project/frontendarmy-wordpress/wp-content/uploads/2022/01/next_hover_arrow.png) no-repeat;
 }
 
 /******** slider ********/
@@ -469,7 +514,7 @@ button.slick-next:hover{
 .about_section:after {
     content: "";
     position: absolute;
-    background: url(../images/about_design.png) no-repeat;
+    background: url(http://localhost/git-wordpress-project/frontendarmy-wordpress/wp-content/uploads/2022/01/about_design.png) no-repeat;
     top: 0;
     right: 0;
     width: 100%;
@@ -534,7 +579,6 @@ button.slick-next:hover{
     list-style: none;
 }
 .technologies_list_item ul li{
-    width: 40%;
     cursor: pointer;
 }
 .technologies_list_item ul li a {
@@ -649,10 +693,6 @@ section.next_step_section {
 .next_step_text h4, .next_step_text p {
     color: #fff;
 }
-/* .next_step_box .lets_start_btn a:hover {
-    color: #0C171D;
-} */
-
 .next_step_box .lets_start_btn a:hover{
     color: #0C171D;
  }
@@ -787,4 +827,3 @@ footer {
     fill: #00D4D4;
 }
 /***************** footer end *****************/
-
