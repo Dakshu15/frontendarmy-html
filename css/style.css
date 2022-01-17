@@ -671,9 +671,9 @@ button.slick-next:hover{
 .news_main_box button.slick-arrow {
     bottom: -5%;
 }
-.news_main_box .slick-list {
+/*.news_main_box .slick-list {
     overflow: unset;
-}
+}*/
 
 /******************* News section end ****************/
 
